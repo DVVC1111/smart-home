@@ -6,14 +6,35 @@
             <h1 class="logo-placeholder">SmartLife</h1>
             <p>Login to your account.</p>
           </div>
-        <form [formGroup]="loginForm">
+        <!-- <form [formGroup]="loginForm">
             <ion-item>
               <ion-label color="medium" position="stacked">Email</ion-label>
               <ion-input formControlName="email" type="email" autocomplete="off" placeholder="Your email address"></ion-input>
             </ion-item>
+            <ion-item *ngIf="showOTP">
+              <ion-label color="medium" position="stacked">OTP</ion-label>
+              <ion-input formControlName="otp" type="number" autocomplete="off" placeholder="Enter OTP"></ion-input>
+            </ion-item>
+            <ion-button class="ion-margin-top" expand="block" color="primary" type="submit" (click)="verifyEmail()" *ngIf = "showEmail">Login</ion-button>
+            <ion-button class="ion-margin-top" expand="block" color="primary" type="submit" (click)="submitOTP()" *ngIf="showOTP">Verify</ion-button>
         
-            <ion-button class="ion-margin-top" expand="block" color="primary" type="submit" (click)="verifyEmail()">Get OTP</ion-button>
-          </form>
+        </form> -->
+
+        <form [formGroup]="loginForm" *ngIf="showEmail" (ngSubmit)="verifyEmail()">
+          <ion-item>
+            <ion-label>Email</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+          <ion-button type="submit" expand="full">Verify Email</ion-button>
+        </form>
+      
+        <form [formGroup]="loginForm" *ngIf="showOTP" (ngSubmit)="submitOTP()">
+          <ion-item>
+            <ion-label>OTP</ion-label>
+            <ion-input type="number" formControlName="otp"></ion-input>
+          </ion-item>
+          <ion-button type="submit" expand="full">Submit OTP</ion-button>
+        </form>
     </div>
     
   </ion-content>

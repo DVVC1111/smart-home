@@ -15,6 +15,11 @@ const routes: Routes = [
     // canActivate: [AuthGuard] // Secure all child pages
   },
   {
+    path: 'otp',
+    loadChildren: () => import('./pages/public/otp/otp.module').then(m => m.OtpPageModule),
+    // canActivate: [PublicGuard] // Prevent for signed in users
+  },
+  {
     path: 'login',
     loadChildren: () => import('./pages/public/login/login.module').then(m => m.LoginPageModule),
     // canActivate: [PublicGuard] // Prevent for signed in users

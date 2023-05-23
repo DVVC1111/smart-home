@@ -10,6 +10,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
+  otpForm: FormGroup;
+
+  showOTP = false; // Initialize showOTP to false
+  showEmail = true;
+  responseotp = null;
+
 
   constructor(
     private navCtrl: NavController,
@@ -20,8 +26,30 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: ['']
+      email: [''],
+      otp: [''] // Add form control for OTP
    });
+  }
+
+
+  async submitOTP() {
+    const backendotp = this.responseotp; // Assuming you have saved the responseotp value in the class
+    const inputotp = this.loginForm.value.otp.toString();
+    console.log('Backend OTP in submitOTP:' + backendotp);
+    console.log('input OTP in Submit OTP: ' + inputotp);
+    if(inputotp === backendotp){
+      if (backendotp === inputotp) {
+        console.log('login complete');
+        this.navCtrl.navigateRoot('/dashboard');
+      } else {
+        // If OTP is incorrect, show error message
+        const alert = await this.alertCtrl.create({
+          message: 'Invalid OTP. Try again.',
+          buttons: ['OK']
+        });
+        await alert.present();
+      }
+    }
   }
 
   async verifyEmail() {
@@ -43,7 +71,14 @@ export class LoginPage implements OnInit {
     // Check if the email exists in the database
     if (response.exists) {
       // Redirect to the dashboard
-      this.navCtrl.navigateRoot('/dashboard');
+      this.showOTP = true;
+      this.showEmail = false;
+      this.responseotp = response.otp.toString(); // Save the responseotp value in the class
+      console.log('Backend_OTP: ' + this.responseotp);
+      const responseotp = response.otp;
+      console.log('Backend_OTP: '+ responseotp);
+
+      this.submitOTP();
     } else {
       // Show an error message
       const alert = await this.alertCtrl.create({
@@ -53,4 +88,5 @@ export class LoginPage implements OnInit {
       await alert.present();
     }
   }
+  
 }
