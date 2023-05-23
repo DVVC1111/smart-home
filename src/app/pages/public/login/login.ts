@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, AlertController } from '@ionic/angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.html',
@@ -14,7 +15,7 @@ export class LoginPage implements OnInit {
     private navCtrl: NavController,
     private loadingCtrl: LoadingController,
     private formBuilder: FormBuilder,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
   ) { }
 
   ngOnInit() {
@@ -33,7 +34,7 @@ export class LoginPage implements OnInit {
     await loading.present();
 
     // Send the email to the backend server
-    const fetchResponse = await fetch(`http://localhost/FG_user/verify_email.php?email=${email}`);
+    const fetchResponse = await fetch(`http://localhost/FG_user/user.php?email=${email}`);
     const response = await fetchResponse.json();
 
     // Dismiss the loading indicator
