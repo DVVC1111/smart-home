@@ -1,0 +1,104 @@
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Settings" defaultHref="/settings"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Users
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="ellipsis-horizontal"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="ion-padding">
+
+    <ion-list-header class="ion-list-header-small">
+      <ion-label>Active users</ion-label>
+    </ion-list-header>
+
+    <ion-list class="list-custom items-no-horizontal-padding" lines="full">
+      <ion-item>
+        <ion-avatar class="ion-margin-end">
+          <img src="../../../../../assets/illustrations/avatar-2.svg">
+        </ion-avatar>
+        <ion-label>
+          <h3>Anne Stocker</h3>
+          <p class="list-description ion-text-wrap">Family</p>
+        </ion-label>
+        <ion-button slot="end" fill="outline" color="danger">
+          Revoke access
+        </ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-avatar class="ion-margin-end">
+          <img src="../../../../../assets/illustrations/avatar-1.svg">
+        </ion-avatar>
+        <ion-label>
+          <h3>John Marston</h3>
+          <p class="list-description ion-text-wrap">Family</p>
+        </ion-label>
+        <ion-button slot="end" fill="outline" color="danger">
+          Revoke access
+        </ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-avatar class="ion-margin-end">
+          <img src="../../../../../assets/illustrations/avatar-4.svg">
+        </ion-avatar>
+        <ion-label>
+          <h3>Steve Lobster</h3>
+          <p class="list-description ion-text-wrap">Family</p>
+        </ion-label>
+        <ion-button slot="end" fill="outline" color="danger">
+          Revoke access
+        </ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-avatar class="ion-margin-end">
+          <img src="../../../../../assets/illustrations/avatar-3.svg">
+        </ion-avatar>
+        <ion-label>
+          <h3>Mary Miracle<ion-chip class="ion-chip-small icon-only" color="tertiary" mode="ios">
+            <ion-icon name="lock-closed"></ion-icon>
+          </ion-chip></h3>
+          <p class="list-description ion-text-wrap">Family &#183; <ion-text color="tertiary">Child</ion-text></p>
+        </ion-label>
+        <ion-button slot="end" fill="outline" color="danger">
+          Revoke access
+        </ion-button>
+      </ion-item>
+    </ion-list>
+
+    <hr class="hr-medium">
+
+    <ion-list-header class="ion-list-header-small">
+      <ion-label>Inactive users</ion-label>
+    </ion-list-header>
+
+    <ion-list class="list-custom items-no-horizontal-padding" lines="full">
+      <ion-item>
+        <ion-avatar class="ion-margin-end">
+          <img src="../../../../../assets/illustrations/avatar-5.svg">
+        </ion-avatar>
+        <ion-label>
+          <h3>Mario Plumber</h3>
+          <p class="list-description ion-text-wrap">Friend</p>
+        </ion-label>
+        <ion-button slot="end" fill="outline" color="primary">
+          Grant access
+        </ion-button>
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,144 @@
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Living Room" defaultHref="/rooms/room-detail"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Main Light
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="deviceOptions()">
+        <ion-icon slot="icon-only" name="ellipsis-horizontal"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Main Light</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-padding-horizontal">
+    <ion-list-header class="ion-list-header-small">
+      <ion-label>Power</ion-label>
+    </ion-list-header>
+    <ion-toggle color="secondary" checked (ionChange)="togglePower()"></ion-toggle>
+
+    <div [ngClass]="power_on ? 'opacity-100' : 'disabled'">
+
+      <hr>
+
+      <ion-list-header class="ion-list-header-small">
+        <ion-label>Brightness</ion-label>
+      </ion-list-header>
+
+      <h3 class="ion-text-center">{{brightness}}%</h3>
+
+      <ion-list class="list-custom" lines="full">
+        <ion-item class="item-range">
+          <ion-range value="{{brightness}}" color="secondary" (ionChange)="changeBrightness($event)">
+            <ion-icon color="medium" slot="start" size="small" name="sunny"></ion-icon>
+            <ion-icon color="medium" slot="end" name="sunny"></ion-icon>
+          </ion-range>
+        </ion-item>
+      </ion-list>
+
+      <hr>
+
+    </div>
+
+    <ion-list-header class="ion-list-header-small">
+      <ion-label>Schedule</ion-label>
+      <ion-button color="secondary" fill="solid">
+        <ion-icon slot="start" name="add"></ion-icon>
+        Add
+      </ion-button>
+    </ion-list-header>
+  </div>
+
+  <ion-list class="list-custom list-custom-compact" lines="none">
+    <ion-item>
+      <ion-label>
+        <p>
+          <ion-text color="primary">17:00 - 22:00</ion-text>
+        </p>
+      </ion-label>
+      <ion-button color="medium" fill="clear" slot="end">
+        <ion-icon size="small" slot="icon-only" name="pencil"></ion-icon>
+      </ion-button>
+      <ion-button color="medium" fill="clear" slot="end">
+        <ion-icon size="small" slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <p>
+          <ion-text color="primary">05:30 - 07:00</ion-text>
+        </p>
+      </ion-label>
+      <ion-button color="medium" fill="clear" slot="end">
+        <ion-icon size="small" slot="icon-only" name="pencil"></ion-icon>
+      </ion-button>
+      <ion-button color="medium" fill="clear" slot="end">
+        <ion-icon size="small" slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <div class="ion-padding-horizontal">
+
+    <hr>
+
+    <ion-list-header class="ion-list-header-small">
+      <ion-label>Usage (kWh)</ion-label>
+    </ion-list-header>
+
+    <ion-card class="ion-card-chart ion-card-chart-basic ion-no-margin animate__animated animate__fadeIn">
+      <canvas baseChart [data]="bar_chart_data" [options]="bar_chart_option" [type]="bar_chart_type">
+      </canvas>
+    </ion-card>
+
+    <hr>
+
+    <ion-list-header class="ion-list-header-small">
+      <ion-label>Info</ion-label>
+    </ion-list-header>
+  </div>
+
+  <ion-list class="list-custom" lines="full">
+    <ion-item>
+      <ion-label>
+        <p>Manufacturer</p>
+      </ion-label>
+      <ion-input readonly slot="end" class="font-size-small ion-text-right ion-no-padding-end" value="Philips">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <p>Model</p>
+      </ion-label>
+      <ion-input readonly slot="end" class="font-size-small ion-text-right ion-no-padding-end" value="K1-090123E">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <p>Serial number</p>
+      </ion-label>
+      <ion-input readonly slot="end" class="font-size-small ion-text-right ion-no-padding-end" value="EFIOO04894854">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <p>Added</p>
+      </ion-label>
+      <ion-input readonly slot="end" class="font-size-small ion-text-right ion-no-padding-end" value="12-01-2022">
+      </ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div class="ion-padding-bottom"></div>
+
+</ion-content>

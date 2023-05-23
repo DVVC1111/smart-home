@@ -1,0 +1,20 @@
+
+  
+  <ion-content>
+    <div class="ion-padding ion-full-height ion-flex ion-flex-center">
+        <div class="logo-container">
+            <h1 class="logo-placeholder">SmartLife</h1>
+            <p>Login to your account.</p>
+          </div>
+        <form [formGroup]="loginForm">
+            <ion-item>
+              <ion-label color="medium" position="stacked">Email</ion-label>
+              <ion-input formControlName="email" type="email" autocomplete="off" placeholder="Your email address"></ion-input>
+            </ion-item>
+        
+            <ion-button class="ion-margin-top" expand="block" color="primary" type="submit" (click)="verifyEmail()">Get OTP</ion-button>
+          </form>
+    </div>
+    
+  </ion-content>
+  

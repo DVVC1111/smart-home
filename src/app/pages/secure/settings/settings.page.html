@@ -1,0 +1,107 @@
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Settings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="hero hero-light-gradient">
+    <ion-avatar>
+      <img src="../../../../assets/illustrations/avatar-1.svg">
+    </ion-avatar>
+    <p class="font-weight-500">John Doe</p>
+    <ion-text color="medium">
+      <small>john.doe@mail.com</small>
+    </ion-text>
+  </div>
+
+  <div class="ion-padding">
+
+    <ion-list-header class="ion-list-header-small">
+      <ion-label>Personal</ion-label>
+    </ion-list-header>
+
+    <ion-list class="list-custom items-no-horizontal-padding" lines="full">
+      <ion-item button>
+        <ion-icon slot="start" color="medium" name="person-circle"></ion-icon>
+        <ion-label>
+          <h3>Account settings</h3>
+          <p class="list-description ion-text-wrap">Set name, avatar, password and more.</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <hr class="hr-medium">
+
+    <ion-list-header class="ion-list-header-small">
+      <ion-label>Security</ion-label>
+    </ion-list-header>
+
+    <ion-list class="list-custom items-no-horizontal-padding" lines="full">
+      <ion-item button routerLink="manage-users">
+        <ion-icon slot="start" color="medium" name="people"></ion-icon>
+        <ion-label>
+          <h3>Manage users</h3>
+          <p class="list-description ion-text-wrap">Set or remove access for users or user groups.</p>
+        </ion-label>
+        <ion-note slot="end" color="medium">4</ion-note>
+      </ion-item>
+      <ion-item button>
+        <ion-icon slot="start" color="medium" name="warning"></ion-icon>
+        <ion-label>
+          <h3>Manage alarms</h3>
+          <p class="list-description ion-text-wrap">Get instantly notified if measured values drop below defined levels.</p>
+        </ion-label>
+        <ion-note slot="end" color="medium">2</ion-note>
+      </ion-item>
+    </ion-list>
+    <hr class="hr-medium">
+
+    <ion-list-header class="ion-list-header-small">
+      <ion-label>Smart features</ion-label>
+    </ion-list-header>
+
+    <ion-list class="list-custom items-no-horizontal-padding" lines="full">
+      <ion-item detail="false">
+        <ion-icon slot="start" color="medium" name="earth"></ion-icon>
+        <ion-label>
+          <h3>Remote access</h3>
+          <p class="list-description ion-text-wrap">Control your devices even if your not connected to your home wifi.</p>
+        </ion-label>
+        <ion-toggle slot="end" checked></ion-toggle>
+      </ion-item>
+      <ion-item detail="false">
+        <ion-icon slot="start" color="medium" name="mic"></ion-icon>
+        <ion-label>
+          <h3>Speech assistant</h3>
+          <p class="list-description ion-text-wrap">Control your devices with Siri.</p>
+        </ion-label>
+        <ion-toggle slot="end"></ion-toggle>
+      </ion-item>
+      <ion-item detail="false">
+        <ion-icon slot="start" color="medium" name="cloud-download"></ion-icon>
+        <ion-label>
+          <h3>Auto updates</h3>
+          <p class="list-description ion-text-wrap">Update software of your smart devices automatically.</p>
+        </ion-label>
+        <ion-toggle slot="end"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <hr class="hr-medium">
+
+    <ion-list class="list-custom items-no-horizontal-padding" lines="full" (click)="signOut()">
+      <ion-item button detail=false>
+        <ion-icon slot="start" color="danger" name="log-out"></ion-icon>
+        <ion-label color="danger">
+          <h3>Sign out</h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+</ion-content>

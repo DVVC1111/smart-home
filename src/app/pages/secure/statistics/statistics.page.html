@@ -1,0 +1,106 @@
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Statistics
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Statistics</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-padding">
+
+    <ion-card class="ion-card-chart ion-card-chart-default ion-no-margin animate__animated animate__fadeIn">
+      <ion-card-header>
+        <p class="ion-chart-card-title">Expenses</p>
+        <div>
+          <div>
+            <ion-card-title>$21.02<ion-icon color="danger" name="caret-up"></ion-icon>
+            </ion-card-title>
+            <ion-card-subtitle>Forecast</ion-card-subtitle>
+          </div>
+          <div>
+            <ion-card-title>$17.21<ion-icon color="danger" name="caret-up"></ion-icon>
+            </ion-card-title>
+            <ion-card-subtitle>Current</ion-card-subtitle>
+          </div>
+        </div>
+      </ion-card-header>
+
+      <canvas baseChart [data]="line_chart_data" [options]="line_chart_option" [type]="line_chart_type"
+        class="ion-margin-bottom">
+      </canvas>
+
+      <ion-segment value="day" color="primary" (ionChange)="changeTimescale($event)">
+        <ion-segment-button value="day">
+          <ion-label>Day</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="week">
+          <ion-label>Week</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="month">
+          <ion-label>Month</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="year">
+          <ion-label>Year</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+    </ion-card>
+
+    <div class="card-grid ion-margin-top-large">
+      <ion-card class="ion-card-chart ion-card-chart-default ion-no-margin animate__animated animate__fadeIn">
+        <ion-card-header>
+          <p class="ion-chart-card-title">Shares</p>
+        </ion-card-header>
+
+        <canvas baseChart [data]="doughnut_chart_data" [options]="doughnut_chart_option" [type]="doughnut_chart_type">
+        </canvas>
+      </ion-card>
+      <ion-card class="ion-card-chart ion-card-chart-default ion-no-margin animate__animated animate__fadeIn">
+        <ion-card-header>
+          <p class="ion-chart-card-title">Today</p>
+          <div>
+            <div>
+              <ion-card-title>71/100</ion-card-title>
+              <ion-card-subtitle>kWh</ion-card-subtitle>
+            </div>
+          </div>
+        </ion-card-header>
+
+        <canvas baseChart [data]="half_doughnut_chart_data" [options]="half_doughnut_chart_option"
+          [type]="half_doughnut_chart_type">
+        </canvas>
+        <p class="half_doughnut_custom_title">71%<span>consumed</span></p>
+      </ion-card>
+    </div>
+
+    <ion-list-header class="ion-list-header-small ion-margin-top-large">
+      <ion-label>Tips</ion-label>
+    </ion-list-header>
+
+    <ion-list class="list-custom list-custom-borders animate__animated animate__fadeIn" lines="full">
+      <ion-item button detail="false" class="ion-full-width">
+        <ion-label>
+          <h3>Automate pool temperature</h3>
+          <p class="font-size-smallest">Reduce water temperature by night to save costs.</p>
+        </ion-label>
+        <ion-note slot="end" color="secondary" class="font-weight-500">View</ion-note>
+      </ion-item>
+      <ion-item button detail="false" class="ion-full-width">
+        <ion-label>
+          <h3>Priority charging</h3>
+          <p class="font-size-smallest">Define priorities for devices you need often.</p>
+        </ion-label>
+        <ion-note slot="end" color="secondary" class="font-weight-500">View</ion-note>
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+</ion-content>

@@ -4,36 +4,36 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
-      },
-      {
-        path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
-      },
-      {
-        path: 'tab3',
-        loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+        path: 'dashboard',
+        loadChildren: () => import('../pages/secure/dashboard/dashboard.module').then(m => m.DashboardPageModule)
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: 'home',
         pathMatch: 'full'
+      },
+      {
+        path: 'statistics',
+        loadChildren: () => import('../pages/secure/statistics/statistics.module').then(m => m.StatisticsPageModule)
+      },
+      {
+        path: 'settings',
+        loadChildren: () => import('../pages/secure/settings/settings.module').then(m => m.SettingsPageModule)
+      },
+      {
+        path: 'devices',
+        loadChildren: () => import('../pages/secure/devices/devices.module').then(m => m.DevicesPageModule)
       }
     ]
-  },
-  {
-    path: '',
-    redirectTo: '/tabs/tab1',
-    pathMatch: 'full'
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

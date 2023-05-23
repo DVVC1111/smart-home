@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">
+        Cancel
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Add device
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div class="ion-padding">
+
+    <ion-radio-group>
+      <ion-accordion-group [multiple]="true" class="custom-accordion-group">
+        <ion-accordion *ngFor="let device of devices" value="{{device?.type}}">
+          <ion-item slot="header">
+            <ion-icon color="medium" slot="start" name="{{device?.icon}}"></ion-icon>
+            <ion-label>{{device?.name}}</ion-label>
+          </ion-item>
+
+          <ion-list slot="content">
+
+            <ion-item *ngFor="let item of device?.items">
+              <ion-label>{{item}}</ion-label>
+              <ion-radio color="secondary" slot="end" value="{{item}}"></ion-radio>
+            </ion-item>
+          </ion-list>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-radio-group>
+  </div>
+
+</ion-content>
+
+<ion-footer class="modal-footer" collapse="fade">
+  <ion-toolbar>
+    <form class="form-default">
+      <ion-button type="submit" expand="block" color="primary" (click)="submit()">
+        Add device
+      </ion-button>
+    </form>
+  </ion-toolbar>
+</ion-footer>

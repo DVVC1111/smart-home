@@ -1,0 +1,160 @@
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button color="medium" (click)="add()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="ion-padding">
+
+    <div class="animate__animated animate__fadeInUp" class="ion-flex">
+      <div>
+        <ion-avatar class="border-default ion-margin-end">
+          <img src="../../../../assets/illustrations/avatar-1.svg">
+        </ion-avatar>
+      </div>
+      <div>
+        <p>Good morning,</p>
+        <p class="font-size-large font-weight-700">John Doe!</p>
+      </div>
+    </div>
+  </div>
+
+  <ion-list-header class="ion-list-header-small ion-padding-horizontal ion-margin-top-large">
+    <ion-label>Rooms</ion-label>
+  </ion-list-header>
+
+  <swiper class="swiper-rooms" #swiper [config]="slides_default_config">
+    <ng-template swiperSlide>
+      <ion-card button class="ion-no-margin ion-no-padding" routerLink="/rooms/room-detail">
+        <ion-card-content>
+          <h2>Living Room</h2>
+          <div>
+            <p>
+              <ion-icon name="wifi"></ion-icon>4 devices
+            </p>
+            <p>
+              <ion-icon name="thermometer"></ion-icon>22°C
+            </p>
+            <p>
+              <ion-icon name="water"></ion-icon>43%
+            </p>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
+    <ng-template swiperSlide>
+      <ion-card button class="ion-no-margin ion-no-padding" routerLink="/rooms/room-detail">
+        <ion-card-content>
+          <h2>Sleeping</h2>
+          <div>
+            <p>
+              <ion-icon name="wifi"></ion-icon>2 devices
+            </p>
+            <p>
+              <ion-icon name="thermometer"></ion-icon>19°C
+            </p>
+            <p>
+              <ion-icon name="water"></ion-icon>54%
+            </p>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
+    <ng-template swiperSlide>
+      <ion-card button class="ion-no-margin ion-no-padding" routerLink="/rooms/room-detail">
+        <ion-card-content>
+          <h2>Office</h2>
+          <div>
+            <p>
+              <ion-icon name="wifi"></ion-icon>2 devices
+            </p>
+            <p>
+              <ion-icon name="thermometer"></ion-icon>21°C
+            </p>
+            <p>
+              <ion-icon name="water"></ion-icon>39%
+            </p>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
+    <ng-template swiperSlide>
+      <ion-card button class="ion-no-margin ion-no-padding" routerLink="/rooms/room-detail">
+        <ion-card-content>
+          <h2>Kitchen</h2>
+          <div>
+            <p>
+              <ion-icon name="wifi"></ion-icon>5 devices
+            </p>
+            <p>
+              <ion-icon name="thermometer"></ion-icon>20°C
+            </p>
+            <p>
+              <ion-icon name="water"></ion-icon>57%
+            </p>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
+  </swiper>
+
+  <div class="ion-padding-horizontal">
+
+    <ion-card class="ion-card-chart ion-card-chart-default ion-no-margin animate__animated animate__fadeIn">
+      <ion-card-header>
+        <p class="ion-chart-card-title">Recent usage</p>
+      </ion-card-header>
+
+      <canvas baseChart [data]="line_chart_data" [options]="line_chart_option" [type]="line_chart_type">
+      </canvas>
+    </ion-card>
+
+    <hr class="hr-transparent hr-medium">
+
+    <ion-list-header class="ion-list-header-small">
+      <ion-label>Conditions</ion-label>
+    </ion-list-header>
+
+    <ion-list class="list-custom list-custom-borders animate__animated animate__fadeIn" lines="full">
+      <ion-item detail="false" class="ion-full-width">
+        <ion-label>
+          <h3>Water quality</h3>
+          <p class="font-size-smallest">pH, ORP and Alkalinity</p>
+        </ion-label>
+        <div slot="end" class="rating-slot rating-slot-success">
+          <p>94</p>
+          <span>Excellent</span>
+        </div>
+      </ion-item>
+      <ion-item detail="false" class="ion-full-width">
+        <ion-label>
+          <h3>Air quality</h3>
+          <p class="font-size-smallest">Humidity and more</p>
+        </ion-label>
+        <div slot="end" class="rating-slot rating-slot-success">
+          <p>89</p>
+          <span>Excellent</span>
+        </div>
+      </ion-item>
+      <ion-item detail="false" class="ion-full-width">
+        <ion-label>
+          <h3>Eco rating</h3>
+          <p class="font-size-smallest">Usage & more</p>
+        </ion-label>
+        <div slot="end" class="rating-slot rating-slot-warning">
+          <p>72</p>
+          <span>Fair</span>
+        </div>
+      </ion-item>
+    </ion-list>    
+  </div>
+
+  <hr class="hr-transparent hr-large">
+
+</ion-content>
